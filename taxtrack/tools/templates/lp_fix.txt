@@ -1,0 +1,13 @@
+ONLY_MODIFY: loader completeness + classification LP rules only
+
+Goal: Make LP activity deterministic and reduce transfer noise.
+
+Work items:
+- Confirm LP receipt mint/burn RawRows exist (zero address transfers).
+- Improve LP add/remove detection using tx_hash grouping and receipt token patterns.
+- Ensure no interference with swap grouping.
+
+Deliverable:
+- Deterministic LP detection improvements
+- Before/after counts for lp_add/lp_remove/transfer
+

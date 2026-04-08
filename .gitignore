@@ -1,0 +1,80 @@
+# ----------------------------
+# Editor / OS / tooling
+# ----------------------------
+.aider*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----------------------------
+# Python / testing
+# ----------------------------
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# ----------------------------
+# Build / packaging
+# ----------------------------
+build/
+dist/
+*.spec
+
+# ----------------------------
+# Data / outputs (workspace artifacts)
+# Keep the repo code-only; user data lives in workspace folders.
+# ----------------------------
+data/
+taxtrack/data/cache/
+taxtrack/data/harvest/
+taxtrack/data/inbox/
+taxtrack/data/out/
+taxtrack/customers/**/inbox/
+taxtrack/customers/**/reports/
+# Customer workspaces should not live in repo
+taxtrack/customers/*
+!taxtrack/customers/__init__.py
+
+# Large/binary outputs anywhere
+*.pdf
+*.zip
+*.sqlite
+
+# Logs / debug dumps
+*.log
+*.jsonl
+
+# Local helper files (workspace lists/scripts)
+wallet_list*.txt
+high_*_activity_wallets.txt
+run_unknown_loop.ps1
+
+# Local zero-byte marker files (legacy)
+bridge_out
+deposit
+internal_transfer
+lp_add
+lp_remove
+pendle_deposit
+pendle_reward
+python
+receive
+restake_in
+restake_out
+reward
+swap
+transfer
+withdraw

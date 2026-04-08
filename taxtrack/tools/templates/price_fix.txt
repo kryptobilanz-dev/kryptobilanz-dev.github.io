@@ -1,0 +1,13 @@
+ONLY_MODIFY: price provider + valuation layer only
+
+Goal: Eliminate missing/0€ valuations deterministically and add auditability.
+
+Work items:
+- Investigate top missing-price tokens and anomalies.
+- Ensure missing price is None (never 0.0) and apply deterministic fallbacks.
+- Add explicit warnings and cache validation.
+
+Deliverable:
+- Reduced missing-price report
+- No new valuation anomalies
+

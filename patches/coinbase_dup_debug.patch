@@ -1,0 +1,53 @@
+*** taxtrack/loaders/coinbase/loader.py
+@@
+ def load_coinbase(path: Path):
+@@
+-    return apply_coinbase_rules([r.to_dict() for r in out])
++    dict_rows = [r.to_dict() for r in out]
++
++    # (1) Rows zählen
++    total_rows = len(dict_rows)
++
++    # (2) Duplikate gruppieren nach Key
++    from collections import defaultdict
++    dup_map = defaultdict(list)
++    for r in dict_rows:
++        key = (
++            r.get("timestamp"),
++            r.get("token"),
++            r.get("amount"),
++            r.get("fee_amount"),
++            r.get("method"),
++            r.get("tx_hash"),
++        )
++        dup_map[key].append(r)
++
++    unique_rows = []
++    duplicates = []
++    for key, group in dup_map.items():
++        if len(group) == 1:
++            unique_rows.append(group[0])
++        else:
++            duplicates.extend(group)
++
++    # (3) Schreibe Debug-CSV nach data/out/dup_debug.csv
++    import csv
++    from pathlib import Path
++    out_path = Path("data/out/dup_debug.csv")
++    out_path.parent.mkdir(parents=True, exist_ok=True)
++
++    fieldnames = [
++        "timestamp", "token", "amount", "fee_amount", "method", "tx_hash"
++    ]
++
++    with out_path.open("w", newline="", encoding="utf-8") as f:
++        writer = csv.DictWriter(f, fieldnames=fieldnames)
++        writer.writeheader()
++        # Schreibe nur Duplikate für Debug
++        for d in duplicates:
++            row = {k: d.get(k, "") for k in fieldnames}
++            writer.writerow(row)
++
++    print(f"[DUP_DEBUG] Total rows: {total_rows}, unique: {len(unique_rows)}, duplicates: {len(duplicates)}")
++
++    return apply_coinbase_rules(unique_rows)

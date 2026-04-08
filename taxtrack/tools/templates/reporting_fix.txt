@@ -1,0 +1,49 @@
+ONLY_MODIFY: taxtrack/pdf/ taxtrack/root/pipeline.py (data passing only) taxtrack/export/
+
+--- FOCUS ---
+
+You MUST ONLY work on:
+
+PDF reporting using tax-ready data
+
+IGNORE EVERYTHING ELSE (no classification, swaps, FIFO internals, prices, loaders, labeling).
+
+--- CURRENT STATE ---
+
+- PDF build_pdf() currently receives economic_records from pipeline = economic_gains (grouped, min-hold_days).
+- tax-ready rows already exist: economic_gains_tax_ready (per tax_interpreter_de: speculative_bucket_net_eur, long_term_bucket_net_eur, holding min/max, correct taxable flag for §23).
+- Pipeline returns both; PDF must consume tax-ready for §23 tables and aggregates.
+
+--- TASK (this iteration) ---
+
+Fix PDF so that primary §23 / taxable display uses economic_gains_tax_ready.
+
+Concrete targets:
+
+1. Pass tax_ready records + tax_summary into build_pdf from pipeline (wire only in pipeline).
+2. Aggregates (taxable vs tax-free, §23 counts/sums) must reflect tax_summary / tax-ready fields — not raw economic_gains pnl_eur alone.
+3. Detail table: show tax-ready columns where useful (e.g. speculative vs long-term bucket EUR, holding days min/max).
+4. Preserve rewards (§22) and transaction detail from classified as today.
+5. No changes to tax_interpreter_de, FIFO, or classification.
+
+--- CONSTRAINTS ---
+
+- Do NOT modify tax logic modules (tax_interpreter_de, tax_rules, gains, lot_tracker).
+- Do NOT modify FIFO, classification, swap, or price code.
+- Only modify reporting layer (PDF sections + minimal pipeline kwargs).
+
+--- SUCCESS CRITERIA ---
+
+- PDF shows correct taxable vs tax-free split (aligned with tax_summary).
+- §23 logic visible in report (buckets / holding period).
+- No regression for rewards and non-§23 sections.
+
+--- OUTPUT FORMAT ---
+
+Reply with:
+
+1) FILES_TO_TOUCH: list
+2) CHANGES: bullet list (max 15 bullets)
+3) CODE_OR_PATCH: optional unified diff or code blocks only for allowed paths
+
+Do not propose changes outside taxtrack/pdf/, pipeline data wiring, or taxtrack/export/.

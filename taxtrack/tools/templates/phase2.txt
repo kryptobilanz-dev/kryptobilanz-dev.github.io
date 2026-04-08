@@ -1,0 +1,13 @@
+ONLY_MODIFY: classification rules + contract labeling only
+
+Goal: Reduce unknowns and ambiguous transfers with deterministic rules.
+
+Work items:
+- Review top unknown methods/tokens/contracts.
+- Propose small, deterministic rule additions.
+- If a contract is confidently identified, add it to address_map.json (no overwrites).
+
+Deliverable:
+- Updated mappings/rules
+- Short validation plan and expected effect on unknown_registry
+

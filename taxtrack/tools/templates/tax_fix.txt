@@ -1,0 +1,13 @@
+ONLY_MODIFY: tax interpretation/output layer only
+
+Goal: Produce legally consistent, tax-ready output (Germany §23 + income).
+
+Work items:
+- Ensure all categories have taxlogic rules.
+- Apply holding-period rule (>1y tax-free) to disposals.
+- Ensure rewards are treated as income at receipt time.
+
+Deliverable:
+- Economic gains table with taxable flag and holding-period days
+- Tax summary totals (taxable vs tax-free vs rewards)
+

@@ -1,0 +1,170 @@
+{
+  "buy": {
+    "type": "Anschaffung",
+    "taxable": false,
+    "description": "Kauf/Anschaffung – eröffnet eine neue Position (kein steuerpflichtiges Ereignis)."
+  },
+  "swap": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true,
+    "description": "Tausch einer Kryptowährung gegen eine andere – steuerpflichtige Veräußerung."
+  },
+  "swap_receive": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true,
+    "description": "Empfang aus Swap – Teil eines Tauschvorgangs."
+  },
+  "sell": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true,
+    "description": "Verkauf oder Tausch eines Tokens – steuerpflichtige Veräußerung."
+  },
+  "withdraw": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Abhebung/Withdraw – grundsätzlich kein steuerpflichtiges Ereignis (sofern keine Realisation im Gains-Layer entsteht)."
+  },
+  "deposit": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Einzahlung – kein steuerpflichtiges Ereignis."
+  },
+
+  "receive": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Erhalt einer Kryptowährung ohne Gegenleistung – nicht steuerpflichtig (falls kein Reward/Airdrop)."
+  },
+
+  "internal_transfer": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Bewegung zwischen eigenen Wallets – steuerfrei."
+  },
+
+  "transfer": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Transfer – nicht automatisch steuerpflichtig."
+  },
+
+  "native_transfer_in": {
+    "type": "Transfer",
+    "taxable": false
+  },
+  "native_transfer_out": {
+    "type": "Transfer",
+    "taxable": false
+  },
+
+  "airdrop": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true,
+    "description": "Airdrop – steuerpflichtiges Entgelt."
+  },
+
+  "reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true,
+    "description": "Reward, Claim, Harvest – immer steuerpflichtig."
+  },
+  
+  "staking_reward": {
+  "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+  "taxable": true,
+  "description": "Staking Reward / Staking Income – steuerpflichtige Einnahme"
+  },
+ 
+
+  "vault_reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true,
+    "description": "Beefy / Vault Reward – steuerpflichtig."
+  },
+
+  "pendle_reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true
+  },
+
+  "restake_reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true
+  },
+
+  "pendle_deposit": {
+    "type": "Transfer",
+    "taxable": false
+  },
+
+  "vault_deposit": {
+    "type": "Transfer",
+    "taxable": false
+  },
+  "restake_deposit": {
+    "type": "Transfer",
+    "taxable": false
+  },
+
+  "pendle_redeem": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true
+  },
+  "vault_withdraw": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true
+  },
+  "restake_withdraw": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true
+  },
+
+  "lp_add": {
+    "type": "Transfer",
+    "taxable": false
+  },
+
+  "lp_remove": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true
+  },
+
+  "bridge": {
+    "type": "Transfer",
+    "taxable": false
+  },
+
+  "restake": {
+    "type": "Transfer",
+    "taxable": false,
+    "description": "Restake – juristisch abhängig; standardmäßig nicht als Veräußerung behandelt."
+  },
+
+  "vault_exit": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true,
+    "description": "Vault-Exit – Realisation beim Exit aus Vault/Position."
+  },
+  "position_exit": {
+    "type": "Privates Veräußerungsgeschäft (§23 EStG)",
+    "taxable": true,
+    "description": "Position-Exit – Realisation beim Exit (Vault/LP/Position Token -> Base Asset)."
+  },
+
+  "learning_reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true,
+    "description": "Learning Reward – steuerpflichtige Einnahme."
+  },
+  "earn_reward": {
+    "type": "Einkünfte aus sonstigen Leistungen (§22 Nr. 3 EStG)",
+    "taxable": true,
+    "description": "Earn Reward – steuerpflichtige Einnahme."
+  },
+
+  "unknown": {
+    "type": "Unbekannt",
+    "taxable": false,
+    "description": "Unbekannte Kategorie – steuerfrei, bis klassifiziert."
+  }
+}
