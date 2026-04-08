@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KryptoBilanz – FIFO, EUR-Bewertung, steuerliche Auswertung</title>
+  <meta name="description" content="KryptoBilanz: Import von Transaktionen, Klassifikation, EUR-Bewertung zum Transaktionszeitpunkt, FIFO-Gewinnermittlung, PDF- und CSV-Berichte, Audit-JSON." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-title-de="KryptoBilanz – FIFO, EUR-Bewertung, steuerliche Auswertung" data-title-en="KryptoBilanz – FIFO-based reporting and valuation">
+
+  <header class="wrap header">
+    <div class="brand">KryptoBilanz</div>
+    <nav class="nav">
+      <a href="index.html">Start</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span class="lang-switch" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang-btn="de">DE</button>
+        <button class="lang-btn" type="button" data-lang-btn="en">EN</button>
+      </span>
+    </nav>
+  </header>
+
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div data-lang="de">
+        <h1>KryptoBilanz – Auswertung mit FIFO und EUR-Bewertung</h1>
+        <p class="subtitle">
+          Transaktionen werden importiert, klassifiziert und zum jeweiligen Zeitpunkt in Euro bewertet.
+          Veräußerungen werden nach der FIFO-Methode (First-In-First-Out) mit den zugehörigen Anschaffungskosten verknüpft.
+          Die Ausgaben richten sich an eine steuerliche Nutzung im deutschen Kontext und werden um eine Audit- und Nachweis-Ebene ergänzt (Quellen, Rechenschritte).
+        </p>
+        <div class="notice">
+          <strong>Website im Aufbau.</strong> Das Projekt wird aktuell entwickelt.
+        </div>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h1>KryptoBilanz – FIFO-based reporting with EUR valuation</h1>
+        <p class="subtitle">
+          Transactions are imported, classified, and valued in EUR at event time.
+          Disposals are linked to acquisition lots using FIFO to compute realized gains/losses.
+          Outputs include an audit/trace layer (sources, derivations).
+        </p>
+        <div class="notice">
+          <strong>Website under construction.</strong> The project is actively being developed.
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Was ist KryptoBilanz?</h2>
+        <p>
+          <strong>KryptoBilanz</strong> ist der Produktname der Oberfläche; die technische Auswertung läuft über das System <strong>TaxTrack</strong> (Core).
+        </p>
+        <p>
+          Ziel ist eine belastbare Grundlage für die steuerliche Einordnung: keine vagen Versprechen, sondern
+          FIFO-basierte Gewinnermittlung, Bewertung in Euro zum Transaktionszeitpunkt und
+          steuerlich nutzbare Ausgabeformate – ergänzt um Prüfpfade und Nachweise.
+        </p>
+        <p>
+          Der Schwerpunkt liegt auf realen, komplexen Setups:
+          mehrere Wallets, Börsen, Swaps, Staking, Rewards, Bridges und DeFi-Protokolle.
+        </p>
+        <p>
+          Kein Verkauf im Sinne einer Beratung, kein Tracking, keine Nutzerkonten.
+          Es handelt sich um ein technisches Auswertungssystem.
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>What is KryptoBilanz?</h2>
+        <p>
+          <strong>KryptoBilanz</strong> is the product name of the interface; the computation runs on the <strong>TaxTrack</strong> core engine.
+        </p>
+        <p>
+          The goal is a solid, auditable basis for tax documentation: FIFO-based realized gains, EUR valuation at event time,
+          and export formats suitable for review.
+        </p>
+        <p>
+          Built for complex setups: multiple wallets/exchanges, swaps, staking, rewards, bridges, and DeFi.
+        </p>
+        <p>
+          No accounts, no tracking, no “tax advice” product — this is a technical reporting system.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Wie funktioniert es?</h2>
+        <ol>
+          <li>Transaktionen werden aus den angebundenen Quellen importiert.</li>
+          <li>Sie werden klassifiziert (z.&nbsp;B. Swap, Staking, Bridge, Transfer).</li>
+          <li>Jede relevante Position wird zum Transaktionszeitpunkt in Euro bewertet.</li>
+          <li>Auf Veräußerungen wird FIFO angewendet (älteste Bestände zuerst).</li>
+          <li>Die Ergebnisse werden in steuerlich verwertbare Berichte und Datensätze überführt (siehe unten).</li>
+        </ol>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>How does it work?</h2>
+        <ol>
+          <li>Transactions are imported from supported sources.</li>
+          <li>They are classified (e.g. swap, staking, bridge, transfer).</li>
+          <li>Relevant legs are valued in EUR at event time.</li>
+          <li>Disposals are matched to acquisition lots using FIFO.</li>
+          <li>Results are exported into report formats and structured datasets.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Ergebnisse &amp; Formate</h2>
+        <p>Typische Ausgaben:</p>
+        <ul>
+          <li><strong>PDF-Bericht</strong> – zusammenfassende Darstellung für Übersicht und Archiv</li>
+          <li><strong>Strukturierte Tabelle (CSV)</strong> – für Weiterverarbeitung in Tabellenkalkulation oder durch Dritte</li>
+          <li><strong>Audit-Daten (JSON)</strong> – maschinenlesbare Details zu Zuordnung und Logik</li>
+        </ul>
+        <p>
+          Jede ausgewiesene Zahl soll im System nachvollziehbar sein – einschließlich Bezug zur Datenquelle und der zugrunde liegenden Berechnungsschritte (Audit- und Traceability-Schicht).
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>Outputs &amp; formats</h2>
+        <p>Typical outputs:</p>
+        <ul>
+          <li><strong>PDF report</strong> – summary for review and archiving</li>
+          <li><strong>Structured table (CSV)</strong> – for spreadsheets or third-party review</li>
+          <li><strong>Audit data (JSON)</strong> – machine-readable details and traceability</li>
+        </ul>
+        <p>
+          Every number should be explainable in the system — including links to source data and derivation steps.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Datenqualität &amp; Grenzen</h2>
+        <ul>
+          <li><strong>Konfidenz:</strong> Einzelne Bewertungen können mit einem Vertrauensniveau versehen sein (hoch, mittel, niedrig), abhängig von Datenlage und Preisfindung.</li>
+          <li><strong>Preise:</strong> Fehlende oder unsichere Marktpreise können zu Lücken oder Annahmen führen; das System versucht, solche Stellen sichtbar zu machen.</li>
+          <li><strong>Keine Steuerberatung:</strong> Es wird keine individuelle steuerliche Rechtsberatung erteilt und keine verbindliche steuerliche Bewertung einzelner Fälle.</li>
+        </ul>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>Data quality &amp; limitations</h2>
+        <ul>
+          <li><strong>Confidence:</strong> Valuations may be tagged with a confidence level (high/medium/low).</li>
+          <li><strong>Pricing gaps:</strong> Missing or uncertain market prices can create gaps; the system tries to make these visible.</li>
+          <li><strong>No tax advice:</strong> No individual legal/tax advisory service is provided.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Beispiel: Swap ETH → USDC</h2>
+        <p>
+          Der Vorgang wird als <strong>Swap</strong> klassifiziert.
+          ETH und USDC werden jeweils zum Transaktionszeitpunkt in Euro bewertet.
+          Der Abgang von ETH wird im Bestand nach <strong>FIFO</strong> den ältesten Anschaffungen zugeordnet; daraus ergibt sich der realisierte Gewinn oder Verlust für diesen Teil.
+          Der Vorgang erscheint in <strong>PDF</strong> und <strong>CSV</strong>; im <strong>Audit-JSON</strong> sind Zuordnung und Rechenweg nachvollziehbar.
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>Example: Swap ETH → USDC</h2>
+        <p>
+          The event is classified as a <strong>swap</strong>. ETH and USDC are valued in EUR at the transaction time.
+          The disposal of ETH is matched to acquisition lots via <strong>FIFO</strong>, yielding the realized gain/loss for that leg.
+          The event appears in <strong>PDF</strong> and <strong>CSV</strong>; the <strong>audit JSON</strong> provides trace + derivation details.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Du nutzt Krypto – aber Steuern sind unklar?</h2>
+        <p>
+          Krypto ist technisch. Steuern sind juristisch.
+          Dazwischen entsteht schnell Unsicherheit.
+        </p>
+        <p>
+          KryptoBilanz / TaxTrack konzentriert sich auf die technische Erfassung,
+          Klassifikation und EUR-Bewertung sowie die FIFO-Verknüpfung von Anschaffung und Veräußerung.
+          So entsteht eine konsistente Datenbasis, auf der steuerliche Entscheidungen fundierter getroffen werden können.
+        </p>
+        <p>
+          Das System ersetzt keinen Steuerberater;
+          es liefert strukturierte Unterlagen und Prüfpfade, keine Rechtsauskunft.
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>You use crypto — but taxes are unclear?</h2>
+        <p>
+          Crypto is technical. Taxes are legal. The gap often creates uncertainty.
+        </p>
+        <p>
+          KryptoBilanz / TaxTrack focuses on ingestion, classification, EUR valuation, and FIFO matching to produce a consistent dataset.
+        </p>
+        <p>
+          This does not replace a tax advisor; it provides structured documentation and audit trails, not legal advice.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Für wen ist KryptoBilanz gedacht?</h2>
+        <ul>
+          <li>Mehrere Wallets oder Börsen mit vielen Bewegungen</li>
+          <li>Swaps, Staking, Rewards, Bridges oder DeFi</li>
+          <li>Bedarf an FIFO-Gewinnermittlung und EUR-Bewertung zum Transaktionszeitpunkt</li>
+          <li>Wunsch nach PDF-, CSV- und Audit-Ausgaben für Eigenprüfung oder Übergabe an einen Steuerberater</li>
+        </ul>
+        <p>
+          KryptoBilanz ist kein Massenprodukt,
+          sondern entsteht aus der Praxis – Schritt für Schritt.
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>Who is this for?</h2>
+        <ul>
+          <li>Multiple wallets/exchanges with many transactions</li>
+          <li>Swaps, staking, rewards, bridges, and DeFi</li>
+          <li>Need for FIFO realized gains and EUR valuation at event time</li>
+          <li>PDF/CSV/audit exports for self-review or advisor hand-off</li>
+        </ul>
+        <p>
+          Built from real practice — step by step — not a mass-market promise.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Häufige Fragen (FAQ)</h2>
+
+        <p><strong>Ist KryptoBilanz ein Steuerberater oder eine Steuerberatung?</strong><br>
+        Nein. Es handelt sich um ein technisches System zur Analyse und Aufbereitung von Krypto-Transaktionen.
+        Eine steuerliche Rechtsberatung im Sinne des Steuerberatungsgesetzes erfolgt nicht.</p>
+
+        <p><strong>Was macht das System konkret?</strong><br>
+        Transaktionsdaten werden importiert, klassifiziert, in Euro zum jeweiligen Zeitpunkt bewertet und mit FIFO zu Gewinnen oder Verlusten verdichtet.
+        Ergebnisse liegen u.&nbsp;a. als PDF, CSV und Audit-JSON vor.</p>
+
+        <p><strong>Für welche Setups ist das gedacht?</strong><br>
+        Für komplexe Setups mit mehreren Wallets, Chains, Bridges und DeFi-Protokollen,
+        bei denen einfache Listen oder pauschale Schätzungen nicht ausreichen.</p>
+
+        <p><strong>Ist das ein Steuertrick oder eine Optimierung?</strong><br>
+        Nein. Ziel ist eine nachprüfbare technische Darstellung –
+        nicht die Umgehung steuerlicher Pflichten.</p>
+
+        <p><strong>Wer nutzt die Ergebnisse?</strong><br>
+        Die aufbereiteten Daten dienen als Grundlage
+        für Nutzer selbst oder für deren Steuerberater.</p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>FAQ</h2>
+
+        <p><strong>Is KryptoBilanz a tax advisor / tax consultancy?</strong><br>
+        No. It is a technical system for analyzing and preparing crypto transaction data. It does not provide tax advice.</p>
+
+        <p><strong>What does it do?</strong><br>
+        Data is imported, classified, valued in EUR at event time, and condensed into realized gains/losses via FIFO.
+        Outputs include PDF, CSV, and audit JSON.</p>
+
+        <p><strong>Who is it for?</strong><br>
+        Complex setups with multiple wallets, chains, bridges and DeFi protocols where simple lists or rough estimates are insufficient.</p>
+
+        <p><strong>Is this a “tax trick”?</strong><br>
+        No. The goal is verifiable technical reporting — not avoiding obligations.</p>
+
+        <p><strong>Who uses the results?</strong><br>
+        For self-review and/or hand-off to an advisor.</p>
+      </div>
+    </section>
+
+
+    <section class="card">
+      <div data-lang="de">
+        <h2>Kontakt</h2>
+        <p>
+          Du hast Fragen oder möchtest informiert bleiben?
+          Schreib mir gern eine Nachricht.
+        </p>
+        <p>
+          E-Mail: <strong>kryptobilanz@gmail.com</strong>
+        </p>
+        <p>
+          Telegram: <strong>@StefanKryptobilanz</strong>
+        </p>
+      </div>
+
+      <div data-lang="en" style="display:none">
+        <h2>Contact</h2>
+        <p>
+          Questions or want to stay informed? Send me a message.
+        </p>
+        <p>
+          Email: <strong>kryptobilanz@gmail.com</strong>
+        </p>
+        <p>
+          Telegram: <strong>@StefanKryptobilanz</strong>
+        </p>
+      </div>
+    </section>
+
+    <p class="small" data-lang="de">
+      Es erfolgt keine steuerliche Beratung im Sinne des Steuerberatungsgesetzes.
+    </p>
+    <p class="small" data-lang="en" style="display:none">
+      No tax advice is provided.
+    </p>
+
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2025 KryptoBilanz</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
